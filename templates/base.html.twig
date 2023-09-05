@@ -1,16 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Immobilier{% endblock %}</title>
+    <link rel="icon">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
 
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<header class="site-head ">
+    <div class="header-top">
+        <div class="container flex">
+            <a href="{{ path('main_home') }}" title="Accueil Immobilier" class="logo">
+                <span>Immobilier ENI</span>
+            </a>
+        </div>
+    </div>
+    <nav class="menu-wrap desktop-blk">
+        <div id="navbarSupportedContent" class="menu">
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="{{ path('main_home') }}">
+                            <span class="menu-icon">
+                                <img src="{{ asset('img/Accueil.svg') }}" alt="Accueil" width="26" height="25">
+                            </span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/acheter">
+                            <span class="menu-icon">
+                                <img src="{{ asset('img/acheter.svg') }}" alt="Acheter" width="24" height="28">
+                            </span>
+                            <span>Acheter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/vendre">
+                            <span class="menu-icon">
+                                <img src="{{ asset('img/vendre.svg') }}" alt="Vendre" width="26" height="30">
+                            </span>
+                            <span>Vendre</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/louer">
+                            <span class="menu-icon">
+                                <img src="{{ asset('img/louer.svg') }}" alt="Louer" width="26" height="30">
+                            </span>
+                            <span>Louer</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://infos.stephaneplazaimmobilier.com">
+                            <span class="menu-icon">
+                                <img src="{{ asset('img/contact.svg') }}" alt="Contact" width="24" height="31">
+                            </span>
+                            <span>
+                                Contact
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    {% block body %}{% endblock %}
+
+</main>
+<footer>
+
+</footer>
+</body>
 </html>

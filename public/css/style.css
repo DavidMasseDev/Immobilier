@@ -1,0 +1,181 @@
+body, p, p.type1 {
+    color: #000;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.5;
+}
+
+body, h5, p, p.type1 {
+    font-family: Montserrat, sans-serif;
+    font-size: 1.4rem;
+    font-style: normal;
+    text-align: left;
+}
+
+
+.site-head {
+    background-color: #fff;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, .1);
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+.site-head .header-top {
+    border-bottom: 1px solid #d8d8d8;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.header-top {
+    background-color: #001d72;
+}
+
+.header-top a {
+    color: #FFFFFF;
+
+}
+
+.container {
+    clear: both;
+    margin: 0 auto;
+    max-width: 125rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.site-head .header-top .container {
+    justify-content: center;
+}
+
+.site-head .menu-wrap .menu {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.site-head .menu-wrap {
+    align-items: center;
+    display: flex;
+    font-size: 0;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+.site-head .menu-wrap .menu > ul {
+    display: inline-block;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.site-head .menu-wrap .menu > ul li {
+    align-self: baseline;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 12px 12px 10px;
+    position: relative;
+}
+
+a {
+    color: #001d72;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.site-head .menu-wrap .menu > ul li a {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+.site-head .menu-wrap .menu > ul li a img {
+    display: inline-block;
+    margin: auto;
+    -o-object-fit: scale-down;
+    object-fit: scale-down;
+    filter: invert(75%) sepia(19%) hue-rotate(238deg) brightness(86%) contrast(111%);
+}
+
+.site-head .menu-wrap .menu > ul li a span {
+    display: block;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #001d72;
+}
+
+.main-introduction p {
+    font-size: 1rem;
+}
+
+main {
+    margin: 0px 150px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 100px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    /*padding: 16px;*/
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    max-height: 300px;
+}
+
+.card:hover {
+    border: 2px solid #001d72;
+    cursor: pointer;
+
+}
+
+
+.card-img-container {
+    /* Exemple de taille. Ajustez selon vos besoins. */
+    width: 100%;
+    height: 200px;
+    overflow: hidden; /* Pour être sûr que l'image ne déborde pas en dehors du conteneur */
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-image:hover{
+    border-radius: 8px 8px 0px 0px;
+
+}
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.city-name {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.price {
+    color: #e74c3c; /* Vous pouvez choisir une autre couleur pour le prix */
+    font-size: 1rem;
+
+}
+
+

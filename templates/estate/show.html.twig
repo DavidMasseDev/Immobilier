@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail n°{{ estate.id }}{% endblock %}
+
+{% block body %}
+    {{ form_start(estateForm) }}
+    {{ form_widget(estateForm) }}
+    <button>Update</button>
+    {{ form_end(estateForm) }}
+
+
+{% endblock %}

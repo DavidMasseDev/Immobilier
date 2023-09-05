@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="main-introduction">
+        <h1>Immobilier ENI</h1>
+        <p>
+            Donec nec nisi at enim sodales tempor. Cras tincidunt, lacus laoreet pellentesque rutrum, libero sem pretium
+            neque, ut consectetur sapien elit at elit. Nullam sit amet tellus quis mauris vestibulum hendrerit. In porta
+            lorem vitae feugiat ullamcorper. Vestibulum sit amet felis sed ex finibus bibendum. Morbi nulla magna,
+            facilisis ullamcorper risus ut, tincidunt luctus dui. Donec luctus libero eget ullamcorper finibus.
+            Pellentesque tristique, diam quis dictum tempor, augue leo consectetur urna, in facilisis enim libero at
+            augue. Donec in efficitur dolor, in dapibus mi. Quisque velit risus, semper in aliquet sed, gravida eget
+            nulla. Nam mattis tristique enim, id imperdiet urna laoreet sed. Mauris ut lacus eget libero scelerisque
+            euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a mauris nec urna eleifend
+            accumsan. Quisque ut cursus felis.
+        </p>
+    </section>
+    <section class="grid-container">
+        {% for estate in list %}
+            <a href="{{ path('estate_show', {'id':estate.id}) }}">
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="{{ asset('img/estate/'~estate.picture) }}" alt="Description de l'image"
+                             class="card-image">
+
+                    </div>
+                    <div class="card-content">
+                        <span class="city-name">{{ estate.city }}</span>
+                        <span class="price">{{ estate.price }} €</span>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </section>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
