@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/estate', name: 'estate_')]
 class EstateController extends AbstractController
 {
-    #[Route('/{id}', name: 'show')]
+    #[Route('/{id}', name: 'show', requirements: ["id"=>'\d+'])]
     public function show(EstateRepository $estateRepository, EntityManagerInterface $entityManager, Request $request, int $id): Response
     {
         $estate = $estateRepository->find($id);
@@ -41,9 +41,15 @@ class EstateController extends AbstractController
         $estateForm = $this->createForm(EstateType::class, $estate);
         $estateForm->handleRequest($request);
         if($estateForm->isSubmitted() && $estateForm->isValid()){
-            $estate->setCreatedAt(new \DateTime());
-
+            $em->persist($estate);
+            $em->flush();
+            $this->addFlash('Success', 'Création réussie !');
+            return $this->redirectToRoute('main_home');
         }
+        return $this->render('estate/show.html.twig', [
+            'estateForm' => $estateForm,
+            'estate' => $estate
+        ]);
 
 
     }
