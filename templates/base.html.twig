@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-
+{% for message in app.flashes('success') %}
+    <div class="flash flash-success">
+        {{ message }}
+    </div>
+{% endfor %}
 <header class="site-head ">
     <div class="header-top">
         <div class="container flex">
@@ -33,27 +37,11 @@
                             <span class="menu-icon">
                                 <img src="{{ asset('img/acheter.svg') }}" alt="Acheter" width="24" height="28">
                             </span>
-                            <span>Acheter</span>
+                            <span>Nouvelle annonce</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/vendre">
-                            <span class="menu-icon">
-                                <img src="{{ asset('img/vendre.svg') }}" alt="Vendre" width="26" height="30">
-                            </span>
-                            <span>Vendre</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/louer">
-                            <span class="menu-icon">
-                                <img src="{{ asset('img/louer.svg') }}" alt="Louer" width="26" height="30">
-                            </span>
-                            <span>Louer</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://infos.stephaneplazaimmobilier.com">
+                        <a href="#">
                             <span class="menu-icon">
                                 <img src="{{ asset('img/contact.svg') }}" alt="Contact" width="24" height="31">
                             </span>
@@ -62,6 +50,39 @@
                             </span>
                         </a>
                     </li>
+                    {% if app.user %}
+                        <li>
+                            <a href="{{ path('app_logout') }}">
+                            <span class="menu-icon">
+                                <img src="{{ asset('img/contact.svg') }}" alt="Contact" width="24" height="31">
+                            </span>
+                                <span>
+                                Logout
+                            </span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ path('app_login') }}">
+                            <span class="menu-icon">
+                                <img src="{{ asset('img/contact.svg') }}" alt="Contact" width="24" height="31">
+                            </span>
+                                <span>
+                                Login
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_register') }}">
+                            <span class="menu-icon">
+                                <img src="{{ asset('img/contact.svg') }}" alt="Contact" width="24" height="31">
+                            </span>
+                                <span>
+                                Register
+                            </span>
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

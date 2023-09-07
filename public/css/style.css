@@ -3,6 +3,7 @@ body, p, p.type1 {
     font-weight: 400;
     letter-spacing: 0;
     line-height: 1.5;
+    margin: 0;
 }
 
 body, h5, p, p.type1 {

@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Estate;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,28 +22,19 @@ class EstateRepository extends ServiceEntityRepository
         parent::__construct($registry, Estate::class);
     }
 
-//    /**
-//     * @return Estate[] Returns an array of Estate objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('e.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findEstateWithPaginator(int $page)
+    {
+        $limit = 40;
+        $offset = $limit * ($page - 1);
 
-//    public function findOneBySomeField($value): ?Estate
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        $qb = $this->createQueryBuilder('e');
+        $qb->orderBy('e.CreatedAt', 'DESC');
+        $qb->setMaxResults($limit);
+        $qb->setFirstResult($offset);
+        $query = $qb->getQuery();
+
+        return new Paginator($query);
+
+
+    }
 }

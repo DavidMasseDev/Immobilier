@@ -15,7 +15,18 @@
             accumsan. Quisque ut cursus felis.
         </p>
     </section>
+    {% if currentPage >1 %}
+        <a href="{{ path('main_home',{'page': currentPage-1}) }}">Previous page</a>
+    {% endif %}
+    {% if currentPage < maxPage %}
+        <a href="{{ path('main_home',{'page': currentPage+1}) }}">Next page</a>
+    {% endif %}
+    {% for i in 1..maxPage %}
+        <a href="{{ path('main_home',{'page': i}) }}"> - {{ i }} </a>
+    {% endfor %}
     <section class="grid-container">
+
+
         {% for estate in list %}
             <a href="{{ path('estate_show', {'id':estate.id}) }}">
                 <div class="card">
